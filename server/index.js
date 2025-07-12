@@ -12,21 +12,18 @@ app.use(express.json());
 const data = [
   {
   message: 'Welcome to new Backend server'
-},
-{
-  message: 'Welcome to new Backend server 2'
-},
+}
 ];
 
 
 app.get('/', (req, res)=>{
   try{
-    let someUndefinedVariable;
-    res.status(206).send({status: 260, message: 'success', data:someUndefinedVariable})}
+    
+    res.status(200).send({status: 200, message: 'success', data: data})}
 catch(err){
    
   console.log(err.message)
-  res.status(500).send({status: 500, message: 'Fai'})}
+  res.status(500).send({status: 500, message: 'Failed'})}
 });
 
 app.use('/products', productRoutes);
@@ -40,6 +37,4 @@ catch(err){
 });
 
 
-app.listen(PORT, ()=>{
-  console.log(`Server is running on PORT${PORT}`)
-});
+module.exports = app;
